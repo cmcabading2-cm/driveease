@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DriveEase — Car rental in Metro Manila and beyond</title>
+  <meta name="description" content="Rent well-kept cars from trusted local owners. Pay by the hour or by the day, track your car live, and book in minutes.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Caveat:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Icon set (Lucide-style line icons) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="i-car" viewBox="0 0 24 24"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></symbol>
+      <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+      <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
+      <symbol id="i-map" viewBox="0 0 24 24"><path d="M14.1 4.6 9.9 2.4a2 2 0 0 0-1.8 0L3.6 4.7A1 1 0 0 0 3 5.6v14.8a1 1 0 0 0 1.4.9l3.7-1.9a2 2 0 0 1 1.8 0l4.2 2.2a2 2 0 0 0 1.8 0l4.5-2.3a1 1 0 0 0 .6-.9V3.6a1 1 0 0 0-1.4-.9l-3.7 1.9a2 2 0 0 1-1.8 0Z"/><path d="M15 5.8v15M9 2.2v15"/></symbol>
+      <symbol id="i-receipt" viewBox="0 0 24 24"><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z"/><path d="M16 8h-6M16 12h-6"/></symbol>
+      <symbol id="i-headset" viewBox="0 0 24 24"><path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"/></symbol>
+      <symbol id="i-zap" viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></symbol>
+      <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></symbol>
+      <symbol id="i-tag" viewBox="0 0 24 24"><path d="M12 2H2v10l9.29 9.29a1 1 0 0 0 1.41 0l8.59-8.59a1 1 0 0 0 0-1.41Z"/><circle cx="7" cy="7" r="1.5"/></symbol>
+      <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+      <symbol id="i-gauge" viewBox="0 0 24 24"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></symbol>
+      <symbol id="i-snow" viewBox="0 0 24 24"><path d="M2 12h20M12 2v20M20 16l-4-4 4-4M4 8l4 4-4 4M16 4l-4 4-4-4M8 20l4-4 4 4"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+      <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></symbol>
+      <symbol id="i-left" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></symbol>
+      <symbol id="i-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+      <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+      <symbol id="i-fb" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></symbol>
+      <symbol id="i-ig" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><path d="M17.5 6.5h.01"/></symbol>
+      <symbol id="i-yt" viewBox="0 0 24 24"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/></symbol>
+    </defs>
+  </svg>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ============ HEADER + HERO ============ -->
+  <header class="hero">
+    <img class="hero__art" src="assets/hero.svg" alt="" width="1200" height="900">
+    <nav class="nav container" aria-label="Main">
+      <a class="logo" href="#">
+        <span class="logo__mark"><svg class="icon"><use href="#i-car"/></svg></span>
+        <span class="logo__text">DriveEase<small>Car rental PH</small></span>
+      </a>
+      <button class="nav__toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+        <svg class="icon"><use href="#i-menu"/></svg>
+      </button>
+      <ul class="nav__links" id="nav-links">
+        <li><a href="#" aria-current="page">Home</a></li>
+        <li><a href="#cars">Cars</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#stories">Stories</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a class="btn btn--primary btn--sm" href="#">Sign in</a></li>
+      </ul>
+    </nav>
+
+    <div class="hero__copy container">
+      <p class="kicker">Car rental · Metro Manila &amp; beyond</p>
+      <h1>Drive your<br><span class="accent">next journey.</span></h1>
+      <p class="hero__lead">Well-kept cars from trusted local owners. Pay by the hour or by the day — we always apply whichever is cheaper.</p>
+      <ul class="perks">
+        <li><svg class="icon"><use href="#i-receipt"/></svg>No hidden fees</li>
+        <li><svg class="icon"><use href="#i-headset"/></svg>24/7 support</li>
+        <li><svg class="icon"><use href="#i-zap"/></svg>Book in minutes</li>
+        <li><svg class="icon"><use href="#i-shield"/></svg>Fully insured</li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============ BOOKING ESTIMATOR ============ -->
+    <section class="container booking-wrap" aria-label="Find a car">
+      <form class="booking" id="booking">
+        <div class="booking__tabs" role="tablist">
+          <button type="button" role="tab" aria-selected="true">Rent a car</button>
+          <button type="button" role="tab" aria-selected="false">Airport transfer</button>
+          <button type="button" role="tab" aria-selected="false">Long term</button>
+        </div>
+
+        <div class="booking__fields">
+          <label class="field">
+            <span class="field__label"><svg class="icon"><use href="#i-pin"/></svg>Pick-up</span>
+            <input type="text" name="location" value="Makati City">
+          </label>
+          <label class="field">
+            <span class="field__label"><svg class="icon"><use href="#i-car"/></svg>Car</span>
+            <select name="car">
+              <option data-hourly="250" data-daily="1800">Toyota Vios</option>
+              <option data-hourly="440" data-daily="3000">Toyota Fortuner</option>
+              <option data-hourly="320" data-daily="2200">Mitsubishi Xpander</option>
+              <option data-hourly="420" data-daily="2900">Honda CR-V</option>
+              <option data-hourly="450" data-daily="3200">Ford Ranger</option>
+              <option data-hourly="600" data-daily="4500">Toyota Hiace</option>
+            </select>
+          </label>
+          <label class="field">
+            <span class="field__label"><svg class="icon"><use href="#i-cal"/></svg>From</span>
+            <input type="datetime-local" name="start">
+          </label>
+          <label class="field">
+            <span class="field__label"><svg class="icon"><use href="#i-cal"/></svg>Until</span>
+            <input type="datetime-local" name="end">
+          </label>
+          <label class="field">
+            <span class="field__label"><svg class="icon"><use href="#i-map"/></svg>Trip area</span>
+            <select name="area">
+              <option value="0">Within Metro Manila</option>
+              <option value="0.20">Zone 1 · Cavite, Laguna, Rizal, Bulacan (+20%)</option>
+              <option value="0.25">Zone 2 · Batangas, Pampanga, Quezon, Tarlac (+25%)</option>
+              <option value="0.30">Zone 3 · Baguio, La Union, Ilocos, Bicol (+30%)</option>
+            </select>
+          </label>
+          <button class="btn btn--primary booking__submit" type="submit">
+            Search cars <svg class="icon"><use href="#i-arrow"/></svg>
+          </button>
+        </div>
+
+        <output class="booking__estimate" id="estimate" aria-live="polite"></output>
+      </form>
+    </section>
+
+    <!-- ============ BRANDS ============ -->
+    <section class="section container" aria-labelledby="brands-title">
+      <div class="section__head">
+        <div>
+          <h2 id="brands-title">Drive the brand <span class="accent">you trust</span></h2>
+          <p class="lead">The makes Filipino drivers know best, all in one place.</p>
+        </div>
+        <a class="link-arrow" href="#cars">All brands <svg class="icon"><use href="#i-arrow"/></svg></a>
+      </div>
+      <ul class="brands">
+        <li><span>T</span>Toyota</li>
+        <li><span>H</span>Honda</li>
+        <li><span>M</span>Mitsubishi</li>
+        <li><span>N</span>Nissan</li>
+        <li><span>F</span>Ford</li>
+        <li><span>H</span>Hyundai</li>
+        <li><span>S</span>Suzuki</li>
+        <li><span>I</span>Isuzu</li>
+      </ul>
+    </section>
+
+    <!-- ============ CATEGORIES ============ -->
+    <section class="container" aria-labelledby="cat-title">
+      <div class="categories">
+        <img class="categories__art" src="assets/categories.svg" alt="" width="900" height="520" loading="lazy">
+        <div class="categories__copy">
+          <h2 id="cat-title">Choose your<br><span class="accent">perfect ride</span></h2>
+          <p>City cars for errands, vans for the whole barkada.</p>
+          <div class="chips" role="group" aria-label="Filter cars by type">
+            <button class="chip is-active" data-filter="all">All cars</button>
+            <button class="chip" data-filter="economy">Economy</button>
+            <button class="chip" data-filter="suv">SUVs</button>
+            <button class="chip" data-filter="mpv">Vans &amp; MPVs</button>
+            <button class="chip" data-filter="pickup">Pickups</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FEATURED CARS ============ -->
+    <section class="section container" id="cars" aria-labelledby="cars-title">
+      <div class="section__head">
+        <div>
+          <h2 id="cars-title">Featured cars</h2>
+          <p class="lead">Freshly cleaned and checked before every trip.</p>
+        </div>
+        <a class="link-arrow" href="#cars">View all cars <svg class="icon"><use href="#i-arrow"/></svg></a>
+      </div>
+
+      <div class="cars">
+        <article class="car" data-category="economy">
+          <img src="assets/cars/vios.svg" alt="Toyota Vios" width="640" height="400" loading="lazy">
+          <div class="car__body">
+            <div class="car__top"><h3>Toyota Vios 2023</h3><span class="status">Available</span></div>
+            <p class="car__type">Economy sedan</p>
+            <p class="price"><strong>₱1,800</strong>/day <span>· ₱250/hr</span></p>
+            <ul class="specs"><li><svg class="icon"><use href="#i-users"/></svg>5 seats</li><li><svg class="icon"><use href="#i-gauge"/></svg>Automatic</li><li><svg class="icon"><use href="#i-snow"/></svg>Air-con</li></ul>
+            <a class="btn btn--primary btn--block" href="#booking">Book now</a>
+          </div>
+        </article>
+
+        <article class="car" data-category="suv">
+          <img src="assets/cars/fortuner.svg" alt="Toyota Fortuner" width="640" height="400" loading="lazy">
+          <div class="car__body">
+            <div class="car__top"><h3>Toyota Fortuner 2023</h3><span class="status">Available</span></div>
+            <p class="car__type">7-seater SUV</p>
+            <p class="price"><strong>₱3,000</strong>/day <span>· ₱440/hr</span></p>
+            <ul class="specs"><li><svg class="icon"><use href="#i-users"/></svg>7 seats</li><li><svg class="icon"><use href="#i-gauge"/></svg>Automatic</li><li><svg class="icon"><use href="#i-snow"/></svg>Air-con</li></ul>
+            <a class="btn btn--primary btn--block" href="#booking">Book now</a>
+          </div>
+        </article>
+
+        <article class="car" data-category="mpv">
+          <img src="assets/cars/xpander.svg" alt="Mitsubishi Xpander" width="640" height="400" loading="lazy">
+          <div class="car__body">
+            <div class="car__top"><h3>Mitsubishi Xpander</h3><span class="status">Available</span></div>
+            <p class="car__type">Family MPV</p>
+            <p class="price"><strong>₱2,200</strong>/day <span>· ₱320/hr</span></p>
+            <ul class="specs"><li><svg class="icon"><use href="#i-users"/></svg>7 seats</li><li><svg class="icon"><use href="#i-gauge"/></svg>Automatic</li><li><svg class="icon"><use href="#i-snow"/></svg>Air-con</li></ul>
+            <a class="btn btn--primary btn--block" href="#booking">Book now</a>
+          </div>
+        </article>
+
+        <article class="car" data-category="suv">
+          <img src="assets/cars/crv.svg" alt="Honda CR-V" width="640" height="400" loading="lazy">
+          <div class="car__body">
+            <div class="car__top"><h3>Honda CR-V 2022</h3><span class="status status--busy">Free at 4 PM</span></div>
+            <p class="car__type">Premium SUV</p>
+            <p class="price"><strong>₱2,900</strong>/day <span>· ₱420/hr</span></p>
+            <ul class="specs"><li><svg class="icon"><use href="#i-users"/></svg>7 seats</li><li><svg class="icon"><use href="#i-gauge"/></svg>Automatic</li><li><svg class="icon"><use href="#i-snow"/></svg>Air-con</li></ul>
+            <a class="btn btn--ghost btn--block" href="#cars" data-similar="suv">See similar SUVs</a>
+          </div>
+        </article>
+
+        <article class="car" data-category="pickup">
+          <img src="assets/cars/ranger.svg" alt="Ford Ranger" width="640" height="400" loading="lazy">
+          <div class="car__body">
+            <div class="car__top"><h3>Ford Ranger XLT</h3><span class="status">Available</span></div>
+            <p class="car__type">Pickup</p>
+            <p class="price"><strong>₱3,200</strong>/day <span>· ₱450/hr</span></p>
+            <ul class="specs"><li><svg class="icon"><use href="#i-users"/></svg>5 seats</li><li><svg class="icon"><use href="#i-gauge"/></svg>Manual</li><li><svg class="icon"><use href="#i-snow"/></svg>Air-con</li></ul>
+            <a class="btn btn--primary btn--block" href="#booking">Book now</a>
+          </div>
+        </article>
+
+        <article class="car" data-category="mpv">
+          <img src="assets/cars/hiace.svg" alt="Toyota Hiace" width="640" height="400" loading="lazy">
+          <div class="car__body">
+            <div class="car__top"><h3>Toyota Hiace Commuter</h3><span class="status">Available</span></div>
+            <p class="car__type">Van for group trips</p>
+            <p class="price"><strong>₱4,500</strong>/day <span>· ₱600/hr</span></p>
+            <ul class="specs"><li><svg class="icon"><use href="#i-users"/></svg>15 seats</li><li><svg class="icon"><use href="#i-gauge"/></svg>Manual</li><li><svg class="icon"><use href="#i-snow"/></svg>Air-con</li></ul>
+            <a class="btn btn--primary btn--block" href="#booking">Book now</a>
+          </div>
+        </article>
+      </div>
+      <p class="note"><svg class="icon"><use href="#i-map"/></svg>Prices shown are Metro Manila rates. Provincial trips add 20–30% to the rental, depending on how far you go.</p>
+    </section>
+
+    <!-- ============ OFFER ============ -->
+    <section class="container" aria-labelledby="offer-title">
+      <div class="offer">
+        <img class="offer__art" src="assets/offer.svg" alt="" width="800" height="320" loading="lazy">
+        <div class="offer__copy">
+          <h2 id="offer-title">Up to <span class="accent">40% off</span></h2>
+          <p>On weekday rentals and trips of 7 days or more.</p>
+          <a class="btn btn--primary" href="#booking">See the deals <svg class="icon"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="section about" id="about" aria-labelledby="about-title">
+      <div class="container about__grid">
+        <div>
+          <h2 id="about-title">More than just<br><span class="accent">a car rental</span></h2>
+          <p class="lead">We work with local owners who care for their cars. You see the price before you book, and you can follow your car from cleaning to your doorstep.</p>
+          <ul class="features">
+            <li><span class="features__icon"><svg class="icon"><use href="#i-car"/></svg></span><div><h3>Wide selection</h3><p>City cars, SUVs, pickups and 15-seater vans.</p></div></li>
+            <li><span class="features__icon"><svg class="icon"><use href="#i-tag"/></svg></span><div><h3>Fair pricing</h3><p>The day rate kicks in automatically when it’s cheaper.</p></div></li>
+            <li><span class="features__icon"><svg class="icon"><use href="#i-headset"/></svg></span><div><h3>Real people, 24/7</h3><p>Chat with the owner or our team any time.</p></div></li>
+            <li><span class="features__icon"><svg class="icon"><use href="#i-zap"/></svg></span><div><h3>Quick booking</h3><p>Upload your license once and reuse it.</p></div></li>
+          </ul>
+        </div>
+        <figure class="about__art">
+          <img src="assets/about.svg" alt="Rental cars parked outside a DriveEase branch" width="900" height="680" loading="lazy">
+          <figcaption class="script">Your journey,<br>our priority</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============ TESTIMONIALS ============ -->
+    <section class="section container" aria-labelledby="reviews-title">
+      <div class="section__head">
+        <div>
+          <h2 id="reviews-title">What our <span class="accent">customers say</span></h2>
+          <p class="lead">Real trips, real people.</p>
+        </div>
+        <div class="arrows">
+          <button class="round" data-scroll="-1" aria-label="Previous reviews"><svg class="icon"><use href="#i-left"/></svg></button>
+          <button class="round round--solid" data-scroll="1" aria-label="Next reviews"><svg class="icon"><use href="#i-right"/></svg></button>
+        </div>
+      </div>
+      <div class="reviews" id="reviews">
+        <blockquote class="review">
+          <p>“The car came clean and right on time. I could even see when it was being cleaned and when it left the garage.”</p>
+          <footer><span class="avatar">AS</span><div><strong>Alex Santos</strong><small>Makati City</small></div></footer>
+        </blockquote>
+        <blockquote class="review">
+          <p>“The provincial rate for our Batangas trip was clear before we paid. No surprises when we returned the car.”</p>
+          <footer><span class="avatar avatar--green">BR</span><div><strong>Bea Ramos</strong><small>Quezon City</small></div></footer>
+        </blockquote>
+        <blockquote class="review">
+          <p>“Chatting with the owner made pickup easy. He even waited ten minutes when I got stuck in traffic.”</p>
+          <footer><span class="avatar">CR</span><div><strong>Carlo Reyes</strong><small>Cebu City</small></div></footer>
+        </blockquote>
+        <blockquote class="review">
+          <p>“Paid from my wallet, got the deposit back the next day. We’ll rent the Hiace again for the next family outing.”</p>
+          <footer><span class="avatar avatar--green">JL</span><div><strong>Jenny Lim</strong><small>Davao City</small></div></footer>
+        </blockquote>
+        <blockquote class="review">
+          <p>“Hourly pricing is perfect for quick errands. I only paid for the four hours I needed.”</p>
+          <footer><span class="avatar">MD</span><div><strong>Mark Dela Cruz</strong><small>Pasig City</small></div></footer>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- ============ STATS ============ -->
+    <section class="stats" aria-label="DriveEase in numbers">
+      <ul class="container stats__list">
+        <li><strong>25K+</strong><span>Happy customers</span></li>
+        <li><strong>50+</strong><span>Cities nationwide</span></li>
+        <li><strong>4.8/5</strong><span>Average rating</span></li>
+        <li><strong>24/7</strong><span>Customer support</span></li>
+      </ul>
+    </section>
+
+    <!-- ============ STORIES ============ -->
+    <section class="section container" id="stories" aria-labelledby="stories-title">
+      <div class="section__head">
+        <div>
+          <h2 id="stories-title">Stories &amp; <span class="accent">tips</span></h2>
+          <p class="lead">Road trip ideas, car care and how our pricing works.</p>
+        </div>
+        <a class="link-arrow" href="#stories">All articles <svg class="icon"><use href="#i-arrow"/></svg></a>
+      </div>
+      <div class="posts">
+        <article class="post"><img src="assets/blog/pricing.svg" alt="" width="560" height="340" loading="lazy"><div><p class="post__tag">Pricing</p><h3><a href="#">Metro Manila vs provincial: how trip pricing works</a></h3><time datetime="2026-10-01">Oct 1, 2026</time></div></article>
+        <article class="post"><img src="assets/blog/rain.svg" alt="" width="560" height="340" loading="lazy"><div><p class="post__tag">Car care</p><h3><a href="#">Rainy-season driving tips for a safer ride</a></h3><time datetime="2026-09-24">Sep 24, 2026</time></div></article>
+        <article class="post"><img src="assets/blog/roadtrips.svg" alt="" width="560" height="340" loading="lazy"><div><p class="post__tag">Destinations</p><h3><a href="#">Ten road trips from Manila worth the drive</a></h3><time datetime="2026-09-18">Sep 18, 2026</time></div></article>
+        <article class="post"><img src="assets/blog/baguio.svg" alt="" width="560" height="340" loading="lazy"><div><p class="post__tag">Guide</p><h3><a href="#">Driving to Baguio for the first time</a></h3><time datetime="2026-09-09">Sep 9, 2026</time></div></article>
+      </div>
+    </section>
+
+    <!-- ============ APP ============ -->
+    <section class="section app" aria-labelledby="app-title">
+      <div class="container app__grid">
+        <div class="phone" aria-hidden="true">
+          <div class="phone__screen">
+            <p class="phone__hello">Good morning, Alex</p>
+            <p class="phone__title">Find a car near you</p>
+            <div class="phone__search">Search car or location</div>
+            <div class="phone__card">
+              <img src="assets/cars/vios.svg" alt="">
+              <div><b>Toyota Vios</b><small>0.8 km away</small><em>₱250/hr</em></div>
+            </div>
+            <div class="phone__card">
+              <img src="assets/cars/crv.svg" alt="">
+              <div><b>Honda CR-V</b><small>1.2 km away</small><em>₱420/hr</em></div>
+            </div>
+            <div class="phone__track"><span></span>Your car is on the way · 12 min</div>
+          </div>
+        </div>
+
+        <div class="app__copy">
+          <h2 id="app-title">Book anytime,<br><span class="accent">anywhere</span></h2>
+          <p class="lead">Open driveease.app on any phone. No download needed.</p>
+          <ul class="checks">
+            <li><svg class="icon"><use href="#i-check"/></svg>Prices worked out for you, by the hour or day</li>
+            <li><svg class="icon"><use href="#i-check"/></svg>Live updates: cleaned, prepared, on the way</li>
+            <li><svg class="icon"><use href="#i-check"/></svg>Pay with your wallet, GCash, Maya or card</li>
+            <li><svg class="icon"><use href="#i-check"/></svg>Chat with the owner and send requests</li>
+          </ul>
+          <a class="btn btn--dark" href="#booking">Start booking <svg class="icon"><use href="#i-arrow"/></svg></a>
+        </div>
+
+        <figure class="app__art">
+          <img src="assets/app-road.svg" alt="" width="600" height="800" loading="lazy">
+          <figcaption class="script script--light">Your ride,<br>in your hand</figcaption>
+        </figure>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer" id="contact">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <a class="logo" href="#">
+          <span class="logo__mark"><svg class="icon"><use href="#i-car"/></svg></span>
+          <span class="logo__text">DriveEase<small>Car rental PH</small></span>
+        </a>
+        <p>Car rentals across the Philippines — city drives, airport runs and provincial road trips.</p>
+        <div class="socials">
+          <a href="#" aria-label="Facebook"><svg class="icon"><use href="#i-fb"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg class="icon"><use href="#i-ig"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg class="icon"><use href="#i-yt"/></svg></a>
+        </div>
+      </div>
+      <nav aria-label="Quick links"><h3>Explore</h3><ul><li><a href="#">Home</a></li><li><a href="#cars">Cars</a></li><li><a href="#about">About us</a></li><li><a href="#stories">Stories</a></li></ul></nav>
+      <nav aria-label="Support"><h3>Support</h3><ul><li><a href="#">Help center</a></li><li><a href="#">FAQs</a></li><li><a href="#">Terms</a></li><li><a href="#">Privacy</a></li><li><a href="#">Cancellations</a></li></ul></nav>
+      <nav aria-label="For owners"><h3>For owners</h3><ul><li><a href="#">List your car</a></li><li><a href="#">Owner dashboard</a></li><li><a href="#">Pricing rules</a></li></ul></nav>
+      <div><h3>Contact</h3>
+        <ul class="contact">
+          <li><svg class="icon"><use href="#i-phone"/></svg>+63 2 8123 4567</li>
+          <li><svg class="icon"><use href="#i-mail"/></svg>support@driveease.ph</li>
+          <li><svg class="icon"><use href="#i-pin"/></svg>Ayala Ave, Makati City</li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer__bottom">
+      <p>© 2026 DriveEase Car Rental PH</p>
+      <ul class="pay"><li>GCash</li><li>Maya</li><li>Visa</li><li>Mastercard</li></ul>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
